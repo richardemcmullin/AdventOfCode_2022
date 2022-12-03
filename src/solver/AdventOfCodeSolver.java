@@ -6,8 +6,15 @@ public abstract class AdventOfCodeSolver {
 
 	public Scanner scanner = new Scanner(System.in);
 
+	/**
+	 * Read and parse all of the input using the scanner class
+	 */
 	public abstract void readInput();
 
+	/**
+	 * This is the main solve method.  All classes that
+	 * extend AdventOfCodeSolver should call this method.
+	 */
 	public void solve() {
 
 		readInput();
@@ -34,8 +41,16 @@ public abstract class AdventOfCodeSolver {
 		System.out.println("solved in " + (end-start) + "ms");
 	}
 
+	/**
+	 * Solve part one of the puzzle and print
+	 * the result using System.out.println()
+	 */
 	public abstract void solvePart1();
 
+	/**
+	 * Solve part two of the puzzle and print
+	 * the result using System.out.println()
+	 */
 	public abstract void solvePart2();
 
 }

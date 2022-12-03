@@ -51,6 +51,8 @@ public class Day03 extends AdventOfCodeSolver {
 
 			char item = ' ';
 
+			// Look for an element that is common between
+			// the two compartments of each rucksack
 			for (char c: rucksack.compartment1.toCharArray()) {
 				if (rucksack.compartment2.contains(String.valueOf(c))) {
 					item = c;
@@ -84,6 +86,7 @@ public class Day03 extends AdventOfCodeSolver {
 
 			char item = ' ';
 
+			// Look for an element that is common in each set of three rucksacks.
 			for (char c: groupRucksack1.allItems.toCharArray()) {
 
 				// Check if the item is in rucksack 2
