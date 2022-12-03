@@ -1,5 +1,5 @@
 # AdventOfCode_2022
-My java solutions to https://adventofcode.com/ advent calendar for 2022.
+My java solutions to the https://adventofcode.com/ advent calendar for 2022.
 <p>
 Each day is in its own package.
 <p>
