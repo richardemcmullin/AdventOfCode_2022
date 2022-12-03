@@ -46,6 +46,7 @@ public class TemplateDay extends AdventOfCodeSolver {
 		for (DayInnerClass dayClass: dayClasses) {
 
 		}
+
 		System.out.println("Total " + total);
 	}
 
