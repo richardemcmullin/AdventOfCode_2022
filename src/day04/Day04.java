@@ -7,9 +7,30 @@ import solver.AdventOfCodeSolver;
 
 public class Day04 extends AdventOfCodeSolver {
 
-	private class DayInnerClass {
+	private class Elf {
 
-		DayInnerClass(String s) {
+		final int min;
+		final int max;
+
+		Elf(String s) {
+
+			String[] range = s.split("-");
+
+			min = Integer.valueOf(range[0]);
+			max = Integer.valueOf(range[1]);
+		}
+	}
+
+	private class ElfPair {
+
+		final Elf elf1;
+		final Elf elf2;
+
+		ElfPair(String s) {
+
+			String[] ranges = s.split(",");
+			elf1 = new Elf(ranges[0]);
+			elf2 = new Elf(ranges[1]);
 		}
 	}
 
@@ -17,7 +38,7 @@ public class Day04 extends AdventOfCodeSolver {
 		new Day04().solve();
 	}
 
-	private List<DayInnerClass> dayClasses = new ArrayList<>();
+	private List<ElfPair> elfPairs = new ArrayList<>();
 
 	@Override
 	public void readInput() {
@@ -31,7 +52,7 @@ public class Day04 extends AdventOfCodeSolver {
 				break;
 			}
 
-			dayClasses.add(new DayInnerClass(input));
+			elfPairs.add(new ElfPair(input));
 		}
 	}
 
@@ -40,16 +61,61 @@ public class Day04 extends AdventOfCodeSolver {
 
 		int total = 0;
 
-		for (DayInnerClass dayClass: dayClasses) {
+		for (ElfPair elfPair: elfPairs) {
+
+			// If the minimums or maximums are the same, then
+			// the ranges must subset each other
+			if (       elfPair.elf1.min == elfPair.elf2.min
+					|| elfPair.elf1.max == elfPair.elf2.max) {
+				total++;
+			}
+			else if (elfPair.elf1.min < elfPair.elf2.min) {
+
+				if (elfPair.elf2.max < elfPair.elf1.max) {
+					total++;
+				}
+			}
+			else {
+
+				if (elfPair.elf1.max < elfPair.elf2.max) {
+					total++;
+				}
+			}
 
 		}
-		System.out.println("Total " + total);
+
+		System.out.println("Subsets " + total);
 	}
 
 	@Override
 	public void solvePart2() {
 
-		System.out.println("Not yet implemented");
+		int total = 0;
+
+		for (ElfPair elfPair: elfPairs) {
+
+			// If the minimums or maximums are the same, then
+			// the ranges must overlap
+			if (       elfPair.elf1.min == elfPair.elf2.min
+					|| elfPair.elf1.max == elfPair.elf2.max) {
+				total++;
+			}
+			else if (elfPair.elf1.min < elfPair.elf2.min) {
+
+				if (elfPair.elf1.max >= elfPair.elf2.min) {
+					total++;
+				}
+			}
+			else {
+
+				if (elfPair.elf2.max >= elfPair.elf1.min) {
+					total++;
+				}
+			}
+
+		}
+
+		System.out.println("Overlaps " + total);
 	}
 
 }
