@@ -17,6 +17,8 @@ public abstract class AdventOfCodeSolver {
 	 */
 	public void solve() {
 
+		System.out.println("Paste puzzle input and press Enter to enter a blank line");
+
 		readInput();
 
 		System.out.println("\nSolve Part 1");

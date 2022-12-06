@@ -58,9 +58,11 @@ public class Day05 extends AdventOfCodeSolver {
 				char box = input.charAt(i*4 + 1);
 
 				// Skip any columns that have no box
-				if (box != ' ') {
-					stack.add(box);
+				if (box == ' ') {
+					continue;
 				}
+
+				stack.add(box);
 			}
 
 			input = scanner.nextLine();
