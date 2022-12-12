@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public abstract class AdventOfCodeSolver {
 
+	public static boolean debug = false;
+
 	public Scanner scanner = new Scanner(System.in);
 
 	/**
