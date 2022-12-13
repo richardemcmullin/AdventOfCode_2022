@@ -74,16 +74,6 @@ public class FllTournamentSchedule {
 			teamSchedules.put(team, teamSchedule);
 		}
 
-		System.out.println(timeline);
-		System.out.println(matches);
-
-		for (int i=0; i<matches.size(); i++) {
-			String match = matches.get(i);
-			if (!match.isBlank()) {
-				System.out.println(match + " " + timeline.get(i));
-			}
-		}
-
 		// Use the FLL Tournament headings.
 		// Date			Begin Time	End Time	Type		Round	Description		Room		Team #
 		// 2016-12-11	9:30 AM		9:35 AM		Table		1		Table Round 1	Table A		8
