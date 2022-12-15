@@ -17,12 +17,12 @@ public class FllTournamentSchedule {
 		TABLE3    ("Table",    3, "Table Round 3");
 
 		String type, desc;
-		int round;
+		int roundNumber;
 
-		Round(String type, int round, String desc) {
-			this.type = type;
-			this.round = round;
-			this.desc = desc;
+		Round(String type, int roundNumber, String desc) {
+			this.type        = type;
+			this.roundNumber = roundNumber;
+			this.desc        = desc;
 		}
 	}
 
@@ -99,7 +99,7 @@ public class FllTournamentSchedule {
 					.append(",").append(timeline.get(col))
 					.append(",").append(timeline.get(col+1))
 					.append(",").append(round.type)
-					.append(",").append(round.round)
+					.append(",").append(round.roundNumber)
 					.append(",").append(round.desc)
 					.append(",").append(activity)
 					.append(",").append(team);
