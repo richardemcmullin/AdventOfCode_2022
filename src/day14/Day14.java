@@ -229,18 +229,24 @@ public class Day14 extends AdventOfCodeSolver {
 		// The feed column is column 500.
 		int colOffset = feedCol - 500;
 
+		// Plot all rock walls
 		for (RockWall rockWall:rockWalls) {
 
 			Point prevPoint = null;
 
+			// Plot lines between each point in the rock wall.
 			for (Point p: rockWall.wallPoints) {
 
 				if (prevPoint == null) {
 					prevPoint = p;
 				}
 
-				for (int col=Math.min(p.x, prevPoint.x)+colOffset; col <= Math.max(p.x, prevPoint.x)+colOffset; col++) {
-					for (int row=Math.min(p.y, prevPoint.y); row <= Math.max(p.y, prevPoint.y); row++) {
+				for (int row=Math.min(p.y, prevPoint.y); row <= Math.max(p.y, prevPoint.y); row++) {
+
+					for (int col = Math.min(p.x, prevPoint.x)+colOffset;
+							col <= Math.max(p.x, prevPoint.x)+colOffset;
+							col++) {
+
 						map[row][col] = '#';
 					}
 				}

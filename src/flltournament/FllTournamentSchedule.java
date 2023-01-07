@@ -110,6 +110,48 @@ public class FllTournamentSchedule {
 
 					round = Round.values()[nextRound];
 				}
+
+				if (activity.startsWith("Judging")) {
+
+					String room = activity.split(" ")[1];
+
+					// Write out 3 entries, 5 minutes apart for the Judging
+					StringBuilder sb = new StringBuilder();
+					sb.append("2022-12-17")
+					.append(",").append(timeline.get(col))
+					.append(",").append(timeline.get(col+1))
+					.append(",").append("Project")
+					.append(",").append(1)
+					.append(",").append("Project Judging")
+					.append(",").append(room)
+					.append(",").append(team);
+
+					System.out.println(sb.toString());
+
+					sb.setLength(0);
+					sb.append("2022-12-17")
+					.append(",").append(timeline.get(col+1))
+					.append(",").append(timeline.get(col+2))
+					.append(",").append("Robot")
+					.append(",").append(1)
+					.append(",").append("Robot Design Judging")
+					.append(",").append(room)
+					.append(",").append(team);
+
+					System.out.println(sb.toString());
+
+					sb.setLength(0);
+					sb.append("2022-12-17")
+					.append(",").append(timeline.get(col+2))
+					.append(",").append(timeline.get(col+3))
+					.append(",").append("Core")
+					.append(",").append(1)
+					.append(",").append("Core Values Judging")
+					.append(",").append(room)
+					.append(",").append(team);
+
+					System.out.println(sb.toString());
+				}
 			}
 		}
 	}
